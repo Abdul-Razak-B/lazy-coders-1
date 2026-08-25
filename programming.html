@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#10b981">
+        <meta name="description"
+            content="Lazy-Coders: Programming vs Coding deconstructed with analogies, technical examples, and an interactive mini-game.">
+        <title>Lazy-Coders | Programming vs Coding</title>
+
+        <link rel="icon"
+            href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+        <link rel="manifest" href="manifest.json">
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/animations.css">
+        <link rel="stylesheet" href="css/components.css">
+    </head>
+
+    <body>
+        <a href="#main-content" class="skip-nav">Skip to main content</a>
+        <canvas id="ambient-canvas"></canvas>
+
+        <header class="glass-header">
+            <nav class="nav-container" aria-label="Main Navigation">
+                <a href="index.html" class="brand-logo">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                    </svg>
+                    <span>Lazy-Coders</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="programming.html" class="nav-link active">Programming</a></li>
+                    <li><a href="python.html" class="nav-link">Python</a></li>
+                    <li><a href="functions.html" class="nav-link">Functions</a></li>
+                    <li><a href="function-types.html" class="nav-link">Types</a></li>
+                    <li><a href="variables.html" class="nav-link">Variables</a></li>
+                    <li><a href="practical.html" class="nav-link">Lab</a></li>
+                    <li><a href="resources.html" class="nav-link">Resources</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button class="btn-cmd-palette" aria-label="Search">Search <span
+                            class="kbd-shortcut">Ctrl+K</span></button>
+                    <button class="btn-secondary btn-sm" data-theme-toggle aria-label="Toggle Theme">🌓</button>
+                    <div class="user-xp-capsule">
+                        <span class="xp-counter">0 XP</span>
+                        <span class="level-badge">Lvl 1</span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main id="main-content" class="main-wrapper">
+            <ul class="breadcrumbs" aria-label="Breadcrumbs">
+                <li><a href="index.html">Home</a></li>
+                <li>/</li>
+                <li aria-current="page">Programming vs Coding</li>
+            </ul>
+
+            <article class="learning-card">
+                <span class="card-badge">Stage 1–3: Intuition & Analogy</span>
+                <h1 class="card-title">What is Programming vs. Coding?</h1>
+
+                <div class="analogy-callout">
+                    <strong>The Master Chef & The Recipe Writer:</strong> <em>Programming</em> is the art of running the
+                    kitchen — designing the full menu, calculating ingredient proportions, scheduling oven times, and
+                    organizing the workflow. <em>Coding</em> is specifically sitting down with pen and paper and writing
+                    the recipe in clear steps that line cooks can follow.
+                </div>
+
+                <p style="color: var(--text-muted); font-size: 1.05rem;">
+                    <strong>Plain-English Definition:</strong> <strong>Programming</strong> is the end-to-end
+                    engineering discipline of analyzing problems, designing algorithms, structuring data, writing code,
+                    testing, and debugging. <strong>Coding</strong> is the specific implementation phase of converting
+                    algorithmic logic into programming language syntax.
+                </p>
+
+                <span class="card-badge">Stage 4–6: Technical Code Anatomy</span>
+                <div class="code-presenter">
+                    <div class="code-header">
+                        <div class="code-dots"><span class="code-dot red"></span><span
+                                class="code-dot yellow"></span><span class="code-dot green"></span></div>
+                        <span>Python 3 • discount_calculator.py</span>
+                        <button class="btn-copy">Copy Code</button>
+                    </div>
+                    <div class="code-body">
+                        <pre><span class="code-cmt"># 1. Programming: Algorithm logic (Apply 20% discount for students, else 5%)</span>
+<span class="code-cmt"># 2. Coding: Language syntax implementation</span>
+<span class="code-kw">def</span> <span class="code-fn">calculate_discount</span>(price, is_student):
+    <span class="code-kw">if</span> is_student:
+        discount = price * <span class="code-str">0.20</span>
+    <span class="code-kw">else</span>:
+        discount = price * <span class="code-str">0.05</span>
+    <span class="code-kw">return</span> price - discount
+
+final_bill = <span class="code-fn">calculate_discount</span>(<span class="code-str">100.0</span>, is_student=<span class="code-kw">True</span>)
+<span class="code-fn">print</span>(<span class="code-str">"Payable:"</span>, final_bill)  <span class="code-cmt"># Output: 80.0</span></pre>
+                    </div>
+                </div>
+
+                <span class="card-badge">Stage 7–8: Interactive Mini-Game</span>
+                <div class="sim-container">
+                    <div class="sim-controls">
+                        <h4 style="color: var(--accent-glow);">Activity Classifier</h4>
+                        <p id="game-scenario-text"
+                            style="color: var(--text-main); font-size: 0.95rem; min-height: 48px;">
+                            Scenario: "You are analyzing why the shopping cart crashes on zero items and drawing a
+                            flowchart to solve it."
+                        </p>
+                        <div style="display: flex; gap: 0.75rem;">
+                            <button id="btn-choice-prog" class="btn btn-secondary" style="flex: 1;">Programming</button>
+                            <button id="btn-choice-code" class="btn btn-secondary" style="flex: 1;">Coding</button>
+                        </div>
+                        <button id="btn-next-scenario" class="btn btn-primary"
+                            style="display: none; margin-top: 0.5rem;">Next Scenario →</button>
+                    </div>
+
+                    <div class="sim-output-box">
+                        <div style="font-size: 0.75rem; color: #64748b;">EVALUATION FEEDBACK</div>
+                        <div id="game-feedback-text" style="font-size: 0.9rem; color: var(--text-muted);">Choose whether
+                            the scenario is Programming or Coding...</div>
+                        <div style="font-size: 0.75rem; color: var(--accent-sky); margin-top: 0.5rem;">Score: <span
+                                id="game-score-text">0</span> / 3</div>
+                    </div>
+                </div>
+
+                <span class="card-badge">Stage 9–11: Diagnostic Quiz</span>
+                <div class="quiz-box">
+                    <h4 style="color: var(--text-main);">Quick Check: What is the relationship between Coding and
+                        Programming?</h4>
+                    <div class="quiz-option" data-correct="false">A) Coding is the broader term that includes
+                        architecture and testing</div>
+                    <div class="quiz-option" data-correct="true">B) Coding is the implementation phase within the
+                        broader lifecycle of Programming</div>
+                    <div class="quiz-option" data-correct="false">C) Programming and Coding are two completely unrelated
+                        fields</div>
+                    <p class="quiz-explanation" style="display:none; color: var(--accent-glow); font-size: 0.85rem;">
+                        ✓ Correct! Coding is the syntax translation stage inside the complete discipline of programming.
+                    </p>
+                </div>
+
+                <div
+                    style="background: rgba(16, 185, 129, 0.1); border: 1px solid var(--accent-emerald); padding: 1.25rem; border-radius: var(--radius-md);">
+                    <h4 style="color: var(--accent-glow);">📌 Key Takeaway</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Syntax is just the alphabet; problem
+                        solving and system decomposition are the true art of software engineering.</p>
+                    <a href="python.html"
+                        style="color: var(--accent-sky); font-weight: 700; text-decoration: none; display: inline-block; margin-top: 0.5rem;">Next:
+                        Discover Python Ecology →</a>
+                </div>
+            </article>
+        </main>
+
+        <div id="command-palette-modal"
+            style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 10000; align-items: flex-start; justify-content: center; padding-top: 14vh;"
+            role="dialog" aria-modal="true" aria-label="Command Palette">
+            <div
+                style="background: var(--bg-surface-elevated); border: 1px solid var(--border-highlight); width: 90%; max-width: 580px; border-radius: 16px; overflow: hidden;">
+                <div
+                    style="padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-glass); display: flex; align-items: center; gap: 0.75rem;">
+                    <input type="text" id="palette-search-input" placeholder="Search lessons, concepts, or labs..."
+                        style="width: 100%; background: transparent; border: none; outline: none; color: var(--text-main); font-size: 1.05rem; font-family: inherit;">
+                </div>
+                <ul id="palette-results-list"
+                    style="list-style: none; max-height: 320px; overflow-y: auto; padding: 0.5rem;"></ul>
+            </div>
+        </div>
+
+        <nav class="mobile-dock" aria-label="Mobile Dock Navigation">
+            <ul class="mobile-dock-list">
+                <li class="mobile-dock-item"><a href="index.html"><span>🏠</span><span>Home</span></a></li>
+                <li class="mobile-dock-item"><a href="programming.html"
+                        class="active"><span>📖</span><span>Concepts</span></a></li>
+                <li class="mobile-dock-item"><a href="functions.html"><span>⚙️</span><span>Functions</span></a></li>
+                <li class="mobile-dock-item"><a href="practical.html"><span>🧪</span><span>Lab</span></a></li>
+            </ul>
+        </nav>
+
+        <footer class="footer-main">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h4>🌿 Lazy-Coders</h4>
+                    <p>A pure static, low-bandwidth, nature-inspired programming platform teaching computing
+                        fundamentals with clarity.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Curriculum</h5>
+                    <ul>
+                        <li><a href="programming.html">Programming Basics</a></li>
+                        <li><a href="python.html">Python Ecology</a></li>
+                        <li><a href="functions.html">Functions & Scopes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Laboratories</h5>
+                    <ul>
+                        <li><a href="practical.html#lab1">User-Defined Functions</a></li>
+                        <li><a href="practical.html#lab3">Call-by-Sharing</a></li>
+                        <li><a href="practical.html#lab4">Classes & Objects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="resources.html">Video Lessons</a></li>
+                        <li><a href="about.html">About & Architecture</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+        <script src="js/app.js"></script>
+        <script src="js/navigation.js"></script>
+        <script src="js/theme.js"></script>
+        <script src="js/dashboard.js"></script>
+        <script src="js/quiz.js"></script>
+        <script src="js/progress.js"></script>
+        <script src="js/accessibility.js"></script>
+        <script src="js/performance.js"></script>
+
+        <script>
+            (() => {
+                const scenarios = [
+                    { text: 'Scenario 1: You are analyzing why a shopping cart crashes on empty orders and designing a flow logic to prevent it.', correct: 'programming', exp: 'Analysis and logic design represent Programming.' },
+                    { text: 'Scenario 2: You are writing "for i in range(10): print(i)" into VS Code.', correct: 'coding', exp: 'Typing specific language syntax is Coding.' },
+                    { text: 'Scenario 3: Designing database schemas and API contracts for a banking app.', correct: 'programming', exp: 'Architecture and security design represent Programming.' }
+                ];
+                let idx = 0, score = 0;
+                const sEl = document.getElementById('game-scenario-text'), fEl = document.getElementById('game-feedback-text'), scoreEl = document.getElementById('game-score-text');
+                const nextBtn = document.getElementById('btn-next-scenario'), pBtn = document.getElementById('btn-choice-prog'), cBtn = document.getElementById('btn-choice-code');
+
+                const handle = (choice) => {
+                    pBtn.disabled = true; cBtn.disabled = true;
+                    if (choice === scenarios[idx].correct) {
+                        score++; scoreEl.textContent = score;
+                        fEl.style.color = 'var(--accent-glow)'; fEl.textContent = '✓ Correct! ' + scenarios[idx].exp;
+                        if (typeof LazyCoders !== 'undefined') LazyCoders.addXP(15, 'Mini-Game Victory');
+                    } else {
+                        fEl.style.color = 'var(--accent-rose)'; fEl.textContent = '✕ Not quite. ' + scenarios[idx].exp;
+                    }
+                    if (idx < scenarios.length - 1) nextBtn.style.display = 'block';
+                    else {
+                        fEl.textContent += ' 🎉 Finished!';
+                        if (typeof LazyCoders !== 'undefined') LazyCoders.markLessonComplete('prog-01');
+                    }
+                };
+                pBtn.addEventListener('click', () => handle('programming'));
+                cBtn.addEventListener('click', () => handle('coding'));
+                nextBtn.addEventListener('click', () => {
+                    idx++; sEl.textContent = scenarios[idx].text; fEl.textContent = 'Choose whether the scenario is Programming or Coding...';
+                    pBtn.disabled = false; cBtn.disabled = false; nextBtn.style.display = 'none';
+                });
+            })();
+        </script>
+    </body>
+
+</html>

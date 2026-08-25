@@ -1,0 +1,106 @@
+/* ==========================================================================
+   LAZY-CODERS: REUSABLE UI COMPONENTS (css/components.css)
+   Buttons, Badges, Modals, Drawers, Accordions & KPI Progress Gauges
+   ========================================================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 700;
+    padding: 0.65rem 1.25rem;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.btn-primary {
+    background: var(--accent-emerald);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--accent-glow);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: var(--bg-surface);
+    color: var(--text-main);
+    border-color: var(--border-glass);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-surface-elevated);
+    border-color: var(--accent-emerald);
+}
+
+.btn-sm {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+    border-radius: var(--radius-sm);
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-full);
+}
+
+.badge-emerald {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--accent-glow);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-sky {
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--accent-sky);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+/* KPI Radial Progress Gauge */
+.kpi-gauge {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kpi-gauge svg {
+    transform: rotate(-90deg);
+}
+
+.kpi-gauge-track {
+    fill: none;
+    stroke: var(--bg-surface);
+    stroke-width: 8;
+}
+
+.kpi-gauge-bar {
+    fill: none;
+    stroke: var(--accent-emerald);
+    stroke-width: 8;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.8s ease;
+}
+
+.kpi-gauge-value {
+    position: absolute;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text-main);
+    font-family: var(--font-mono);
+}

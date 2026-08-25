@@ -1,0 +1,28 @@
+Lazy-Coders/
+│
+├── index.html
+├── programming.html
+├── python.html
+├── functions.html
+├── function-types.html
+├── variables.html
+├── practical.html
+├── resources.html
+├── about.html
+│────├── css/
+│      ├── style.css
+│      ├── responsive.css
+│      ├── animations.css
+│      └── components.css
+│────├── js/
+│      ├── app.js
+│      ├── navigation.js
+│      ├── theme.js
+│      ├── dashboard.js
+│      ├── quiz.js
+│      ├── progress.js
+│      ├── accessibility.js
+│      └── performance.js
+│
+├── manifest.json
+└── service-worker.js

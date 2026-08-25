@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#10b981">
+        <meta name="description"
+            content="Lazy-Coders: Function anatomy, parameter binding, arguments, default values, and return statements.">
+        <title>Lazy-Coders | Functions & Parameters</title>
+
+        <link rel="icon"
+            href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+        <link rel="manifest" href="manifest.json">
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/animations.css">
+        <link rel="stylesheet" href="css/components.css">
+    </head>
+
+    <body>
+        <a href="#main-content" class="skip-nav">Skip to main content</a>
+        <canvas id="ambient-canvas"></canvas>
+
+        <header class="glass-header">
+            <nav class="nav-container" aria-label="Main Navigation">
+                <a href="index.html" class="brand-logo">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                    </svg>
+                    <span>Lazy-Coders</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="programming.html" class="nav-link">Programming</a></li>
+                    <li><a href="python.html" class="nav-link">Python</a></li>
+                    <li><a href="functions.html" class="nav-link active">Functions</a></li>
+                    <li><a href="function-types.html" class="nav-link">Types</a></li>
+                    <li><a href="variables.html" class="nav-link">Variables</a></li>
+                    <li><a href="practical.html" class="nav-link">Lab</a></li>
+                    <li><a href="resources.html" class="nav-link">Resources</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button class="btn-cmd-palette" aria-label="Search">Search <span
+                            class="kbd-shortcut">Ctrl+K</span></button>
+                    <button class="btn-secondary btn-sm" data-theme-toggle aria-label="Toggle Theme">🌓</button>
+                    <div class="user-xp-capsule">
+                        <span class="xp-counter">0 XP</span>
+                        <span class="level-badge">Lvl 1</span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main id="main-content" class="main-wrapper">
+            <ul class="breadcrumbs" aria-label="Breadcrumbs">
+                <li><a href="index.html">Home</a></li>
+                <li>/</li>
+                <li aria-current="page">Functions & Parameters</li>
+            </ul>
+
+            <article class="learning-card">
+                <span class="card-badge">Stage 1–3: Intuition & Analogy</span>
+                <h1 class="card-title">Functions, Parameters, Arguments & Return Values</h1>
+
+                <div class="analogy-callout">
+                    <strong>The Coffee Machine:</strong> A function is like a smart coffee machine. You supply
+                    ingredients like water and beans (the <em>arguments</em> passed into its <em>parameters</em>), push
+                    start (the <em>call</em>), it runs its internal brewing algorithm (the <em>body</em>), and delivers
+                    a cup of coffee (the <em>return value</em>).
+                </div>
+
+                <p style="color: var(--text-muted); font-size: 1.05rem;">
+                    <strong>Plain-English Definition:</strong> A <strong>function</strong> is a named, reusable block of
+                    code that accepts inputs (arguments), performs computations, and optionally returns a result to the
+                    caller.
+                </p>
+
+                <span class="card-badge">Stage 4–6: Syntax Breakdown</span>
+                <div class="code-presenter">
+                    <div class="code-header">
+                        <div class="code-dots"><span class="code-dot red"></span><span
+                                class="code-dot yellow"></span><span class="code-dot green"></span></div>
+                        <span>Python 3 • brew_beverage.py</span>
+                        <button class="btn-copy">Copy Code</button>
+                    </div>
+                    <div class="code-body">
+                        <pre><span class="code-kw">def</span> <span class="code-fn">make_beverage</span>(drink_type, size, sugar=<span class="code-kw">False</span>):
+    prepared = <span class="code-str">f"Serving 1x {size} {drink_type}"</span>
+    <span class="code-kw">if</span> sugar:
+        prepared += <span class="code-str">" (with sugar)"</span>
+    <span class="code-kw">return</span> prepared
+
+order = <span class="code-fn">make_beverage</span>(<span class="code-str">"Espresso"</span>, <span class="code-str">"Medium"</span>, sugar=<span class="code-kw">True</span>)
+<span class="code-fn">print</span>(order)</pre>
+                    </div>
+                </div>
+
+                <span class="card-badge">Stage 7–8: Interactive Parameter Simulator</span>
+                <div class="sim-container">
+                    <div class="sim-controls">
+                        <h4 style="color: var(--accent-glow);">Function Input Matrix</h4>
+                        <label style="font-size: 0.85rem; color: var(--text-muted);">drink_type:
+                            <input type="text" id="input-drink" value="Latte"
+                                style="width: 100%; background: var(--bg-surface-elevated); border: 1px solid var(--border-glass); color: var(--text-main); padding: 0.4rem; border-radius: 4px;">
+                        </label>
+                        <label style="font-size: 0.85rem; color: var(--text-muted);">size:
+                            <select id="select-size"
+                                style="width: 100%; background: var(--bg-surface-elevated); border: 1px solid var(--border-glass); color: var(--text-main); padding: 0.4rem; border-radius: 4px;">
+                                <option value="Small">Small (200ml)</option>
+                                <option value="Medium" selected>Medium (350ml)</option>
+                                <option value="Large">Large (500ml)</option>
+                            </select>
+                        </label>
+                        <label
+                            style="font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem;">
+                            <input type="checkbox" id="check-sugar" checked> sugar = True
+                        </label>
+                        <button id="btn-trigger-fn" class="btn btn-primary" style="margin-top: 0.4rem;">Execute:
+                            make_beverage()</button>
+                    </div>
+
+                    <div class="sim-output-box">
+                        <div style="font-size: 0.75rem; color: #64748b;">EXECUTION TRACE</div>
+                        <pre id="fn-trace-log"
+                            style="font-size: 0.8rem; color: var(--text-muted);">>>> Ready to call.</pre>
+                        <div
+                            style="border-top: 1px solid var(--border-glass); padding-top: 0.5rem; margin-top: 0.5rem;">
+                            <div style="font-size: 0.75rem; color: var(--accent-sky); font-weight: 700;">RETURN RESULT:
+                            </div>
+                            <div id="fn-return-log" style="font-size: 0.85rem; color: var(--accent-glow);">None</div>
+                        </div>
+                    </div>
+                </div>
+
+                <span class="card-badge">Stage 9–11: Diagnostic Quiz</span>
+                <div class="quiz-box">
+                    <h4 style="color: var(--text-main);">Quick Check: What is the difference between parameters and
+                        arguments?</h4>
+                    <div class="quiz-option" data-correct="false">A) Parameters are values passed in; arguments are
+                        variables in the definition</div>
+                    <div class="quiz-option" data-correct="true">B) Parameters are placeholder variables in the def
+                        line; arguments are real values passed during invocation</div>
+                    <div class="quiz-option" data-correct="false">C) Parameters are print statements; arguments are
+                        return statements</div>
+                    <p class="quiz-explanation" style="display:none; color: var(--accent-glow); font-size: 0.85rem;">
+                        ✓ Correct! Parameters define the interface slots; arguments fill them at call-time.
+                    </p>
+                </div>
+
+                <div
+                    style="background: rgba(16, 185, 129, 0.1); border: 1px solid var(--accent-emerald); padding: 1.25rem; border-radius: var(--radius-md);">
+                    <h4 style="color: var(--accent-glow);">📌 Key Takeaway</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Functions prevent code duplication and let
+                        you compose complex software from modular, testable components.</p>
+                    <a href="function-types.html"
+                        style="color: var(--accent-sky); font-weight: 700; text-decoration: none; display: inline-block; margin-top: 0.5rem;">Next:
+                        Built-in vs. User-Defined Functions →</a>
+                </div>
+            </article>
+        </main>
+
+        <div id="command-palette-modal"
+            style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 10000; align-items: flex-start; justify-content: center; padding-top: 14vh;"
+            role="dialog" aria-modal="true" aria-label="Command Palette">
+            <div
+                style="background: var(--bg-surface-elevated); border: 1px solid var(--border-highlight); width: 90%; max-width: 580px; border-radius: 16px; overflow: hidden;">
+                <div
+                    style="padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-glass); display: flex; align-items: center; gap: 0.75rem;">
+                    <input type="text" id="palette-search-input" placeholder="Search lessons, concepts, or labs..."
+                        style="width: 100%; background: transparent; border: none; outline: none; color: var(--text-main); font-size: 1.05rem; font-family: inherit;">
+                </div>
+                <ul id="palette-results-list"
+                    style="list-style: none; max-height: 320px; overflow-y: auto; padding: 0.5rem;"></ul>
+            </div>
+        </div>
+
+        <nav class="mobile-dock" aria-label="Mobile Dock Navigation">
+            <ul class="mobile-dock-list">
+                <li class="mobile-dock-item"><a href="index.html"><span>🏠</span><span>Home</span></a></li>
+                <li class="mobile-dock-item"><a href="programming.html"><span>📖</span><span>Concepts</span></a></li>
+                <li class="mobile-dock-item"><a href="functions.html"
+                        class="active"><span>⚙️</span><span>Functions</span></a></li>
+                <li class="mobile-dock-item"><a href="practical.html"><span>🧪</span><span>Lab</span></a></li>
+            </ul>
+        </nav>
+
+        <footer class="footer-main">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h4>🌿 Lazy-Coders</h4>
+                    <p>A pure static, low-bandwidth, nature-inspired programming platform teaching computing
+                        fundamentals with clarity.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Curriculum</h5>
+                    <ul>
+                        <li><a href="programming.html">Programming Basics</a></li>
+                        <li><a href="python.html">Python Ecology</a></li>
+                        <li><a href="functions.html">Functions & Scopes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Laboratories</h5>
+                    <ul>
+                        <li><a href="practical.html#lab1">User-Defined Functions</a></li>
+                        <li><a href="practical.html#lab3">Call-by-Sharing</a></li>
+                        <li><a href="practical.html#lab4">Classes & Objects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="resources.html">Video Lessons</a></li>
+                        <li><a href="about.html">About & Architecture</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+        <script src="js/app.js"></script>
+        <script src="js/navigation.js"></script>
+        <script src="js/theme.js"></script>
+        <script src="js/dashboard.js"></script>
+        <script src="js/quiz.js"></script>
+        <script src="js/progress.js"></script>
+        <script src="js/accessibility.js"></script>
+        <script src="js/performance.js"></script>
+
+        <script>
+            (() => {
+                const d = document.getElementById('input-drink'), s = document.getElementById('select-size'), sug = document.getElementById('check-sugar');
+                const btn = document.getElementById('btn-trigger-fn'), t = document.getElementById('fn-trace-log'), r = document.getElementById('fn-return-log');
+
+                btn.addEventListener('click', () => {
+                    const valD = d.value || 'Latte', valS = s.value, valSug = sug.checked;
+                    let res = `Serving 1x ${valS} ${valD}` + (valSug ? ' (with sugar)' : '');
+                    t.textContent = `>>> [STACK FRAME]: make_beverage(drink="${valD}", size="${valS}", sugar=${valSug})\n    Executing...\n>>> [FRAME DESTROYED]`;
+                    r.textContent = `"${res}"`;
+                    if (typeof LazyCoders !== 'undefined') {
+                        LazyCoders.markLessonComplete('fn-01');
+                        LazyCoders.addXP(20, 'Function Simulator Executed');
+                    }
+                });
+            })();
+        </script>
+    </body>
+
+</html>

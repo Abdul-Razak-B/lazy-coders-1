@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#10b981">
+        <meta name="description"
+            content="Lazy-Coders: Curated high-yield video lessons, official documentation hubs, and external resource cards.">
+        <title>Lazy-Coders | Curated Learning Resources</title>
+
+        <link rel="icon"
+            href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+        <link rel="manifest" href="manifest.json">
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/animations.css">
+        <link rel="stylesheet" href="css/components.css">
+    </head>
+
+    <body>
+        <a href="#main-content" class="skip-nav">Skip to main content</a>
+        <canvas id="ambient-canvas"></canvas>
+
+        <header class="glass-header">
+            <nav class="nav-container" aria-label="Main Navigation">
+                <a href="index.html" class="brand-logo">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                    </svg>
+                    <span>Lazy-Coders</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="programming.html" class="nav-link">Programming</a></li>
+                    <li><a href="python.html" class="nav-link">Python</a></li>
+                    <li><a href="functions.html" class="nav-link">Functions</a></li>
+                    <li><a href="function-types.html" class="nav-link">Types</a></li>
+                    <li><a href="variables.html" class="nav-link">Variables</a></li>
+                    <li><a href="practical.html" class="nav-link">Lab</a></li>
+                    <li><a href="resources.html" class="nav-link active">Resources</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button class="btn-cmd-palette" aria-label="Search">Search <span
+                            class="kbd-shortcut">Ctrl+K</span></button>
+                    <button class="btn-secondary btn-sm" data-theme-toggle aria-label="Toggle Theme">🌓</button>
+                    <div class="user-xp-capsule">
+                        <span class="xp-counter">0 XP</span>
+                        <span class="level-badge">Lvl 1</span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main id="main-content" class="main-wrapper">
+            <ul class="breadcrumbs" aria-label="Breadcrumbs">
+                <li><a href="index.html">Home</a></li>
+                <li>/</li>
+                <li aria-current="page">Curated Resources</li>
+            </ul>
+
+            <header style="margin-bottom: 1.5rem;">
+                <h1 style="font-size: 2.2rem; color: var(--text-main); font-weight: 800;">📺 Curated Learning Resources
+                </h1>
+                <p style="color: var(--text-muted);">Bandwidth-optimized external media and official documentation
+                    links.</p>
+            </header>
+
+            <section class="learning-card">
+                <span class="card-badge">On-Demand Videos</span>
+                <h2 class="card-title">Foundational Video Tutorials</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                    <div>
+                        <div class="video-facade-card" data-youtube-id="_uQrJ0TkZlc">
+                            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
+                                alt="Python Poster" class="video-poster-img" loading="lazy">
+                            <div class="video-play-btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg></div>
+                        </div>
+                        <h3 style="color: var(--text-main); font-size: 1rem; margin-top: 0.5rem;">Python for Beginners
+                        </h3>
+                    </div>
+
+                    <div>
+                        <div class="video-facade-card" data-youtube-id="rfscVS0vtbw">
+                            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=600&q=80"
+                                alt="Code Editor Poster" class="video-poster-img" loading="lazy">
+                            <div class="video-play-btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg></div>
+                        </div>
+                        <h3 style="color: var(--text-main); font-size: 1rem; margin-top: 0.5rem;">Functions & Scopes
+                            In-Depth</h3>
+                    </div>
+                </div>
+            </section>
+
+            <section class="learning-card">
+                <span class="card-badge">Documentation</span>
+                <h2 class="card-title">Official Documentation Portals</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div
+                        style="background: var(--bg-surface); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-glass);">
+                        <h3 style="color: var(--text-main); font-size: 1.05rem;">🐍 Python Official Docs</h3>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0.3rem 0;">Standard Python 3
+                            reference and PEP guidelines.</p>
+                        <a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer"
+                            style="color: var(--accent-sky); font-weight: 700; font-size: 0.85rem;">Visit
+                            docs.python.org ↗</a>
+                    </div>
+                    <div
+                        style="background: var(--bg-surface); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-glass);">
+                        <h3 style="color: var(--text-main); font-size: 1.05rem;">🌐 MDN Web Docs</h3>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0.3rem 0;">HTML5, CSS3, and ES6+
+                            standards.</p>
+                        <a href="https://developer.mozilla.org/" target="_blank" rel="noopener noreferrer"
+                            style="color: var(--accent-sky); font-weight: 700; font-size: 0.85rem;">Visit MDN Docs ↗</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div id="command-palette-modal"
+            style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 10000; align-items: flex-start; justify-content: center; padding-top: 14vh;"
+            role="dialog" aria-modal="true" aria-label="Command Palette">
+            <div
+                style="background: var(--bg-surface-elevated); border: 1px solid var(--border-highlight); width: 90%; max-width: 580px; border-radius: 16px; overflow: hidden;">
+                <div
+                    style="padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-glass); display: flex; align-items: center; gap: 0.75rem;">
+                    <input type="text" id="palette-search-input" placeholder="Search lessons, concepts, or labs..."
+                        style="width: 100%; background: transparent; border: none; outline: none; color: var(--text-main); font-size: 1.05rem; font-family: inherit;">
+                </div>
+                <ul id="palette-results-list"
+                    style="list-style: none; max-height: 320px; overflow-y: auto; padding: 0.5rem;"></ul>
+            </div>
+        </div>
+
+        <nav class="mobile-dock" aria-label="Mobile Dock Navigation">
+            <ul class="mobile-dock-list">
+                <li class="mobile-dock-item"><a href="index.html"><span>🏠</span><span>Home</span></a></li>
+                <li class="mobile-dock-item"><a href="programming.html"><span>📖</span><span>Concepts</span></a></li>
+                <li class="mobile-dock-item"><a href="functions.html"><span>⚙️</span><span>Functions</span></a></li>
+                <li class="mobile-dock-item"><a href="practical.html"><span>🧪</span><span>Lab</span></a></li>
+            </ul>
+        </nav>
+
+        <footer class="footer-main">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h4>🌿 Lazy-Coders</h4>
+                    <p>A pure static, low-bandwidth, nature-inspired programming platform teaching computing
+                        fundamentals with clarity.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Curriculum</h5>
+                    <ul>
+                        <li><a href="programming.html">Programming Basics</a></li>
+                        <li><a href="python.html">Python Ecology</a></li>
+                        <li><a href="functions.html">Functions & Scopes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Laboratories</h5>
+                    <ul>
+                        <li><a href="practical.html#lab1">User-Defined Functions</a></li>
+                        <li><a href="practical.html#lab3">Call-by-Sharing</a></li>
+                        <li><a href="practical.html#lab4">Classes & Objects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="resources.html">Video Lessons</a></li>
+                        <li><a href="about.html">About & Architecture</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+        <script src="js/app.js"></script>
+        <script src="js/navigation.js"></script>
+        <script src="js/theme.js"></script>
+        <script src="js/dashboard.js"></script>
+        <script src="js/quiz.js"></script>
+        <script src="js/progress.js"></script>
+        <script src="js/accessibility.js"></script>
+        <script src="js/performance.js"></script>
+    </body>
+
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#10b981">
+        <meta name="description"
+            content="Lazy-Coders: Variable assignment, dynamic typing, local vs global scope, lifetime, and interactive scope visualizer.">
+        <title>Lazy-Coders | Variables & Scope Mechanics</title>
+
+        <link rel="icon"
+            href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+        <link rel="manifest" href="manifest.json">
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/animations.css">
+        <link rel="stylesheet" href="css/components.css">
+    </head>
+
+    <body>
+        <a href="#main-content" class="skip-nav">Skip to main content</a>
+        <canvas id="ambient-canvas"></canvas>
+
+        <header class="glass-header">
+            <nav class="nav-container" aria-label="Main Navigation">
+                <a href="index.html" class="brand-logo">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                    </svg>
+                    <span>Lazy-Coders</span>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="programming.html" class="nav-link">Programming</a></li>
+                    <li><a href="python.html" class="nav-link">Python</a></li>
+                    <li><a href="functions.html" class="nav-link">Functions</a></li>
+                    <li><a href="function-types.html" class="nav-link">Types</a></li>
+                    <li><a href="variables.html" class="nav-link active">Variables</a></li>
+                    <li><a href="practical.html" class="nav-link">Lab</a></li>
+                    <li><a href="resources.html" class="nav-link">Resources</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button class="btn-cmd-palette" aria-label="Search">Search <span
+                            class="kbd-shortcut">Ctrl+K</span></button>
+                    <button class="btn-secondary btn-sm" data-theme-toggle aria-label="Toggle Theme">🌓</button>
+                    <div class="user-xp-capsule">
+                        <span class="xp-counter">0 XP</span>
+                        <span class="level-badge">Lvl 1</span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main id="main-content" class="main-wrapper">
+            <ul class="breadcrumbs" aria-label="Breadcrumbs">
+                <li><a href="index.html">Home</a></li>
+                <li>/</li>
+                <li aria-current="page">Variables & Scope</li>
+            </ul>
+
+            <article class="learning-card">
+                <span class="card-badge">Stage 1–3: Intuition & Analogy</span>
+                <h1 class="card-title">Variables, Dynamic Typing & Scope Lifetimes</h1>
+
+                <div class="analogy-callout">
+                    <strong>The Living Room Bulletin Board vs. Private Room:</strong> <em>Global Scope</em> is like a
+                    bulletin board in the shared living room — anyone in the house can view it. A <em>Local Scope</em>
+                    is like writing a secret on a sticky note inside your private bedroom. When you exit and close the
+                    door (the function completes), that temporary sticky note is recycled.
+                </div>
+
+                <p style="color: var(--text-muted); font-size: 1.05rem;">
+                    <strong>Plain-English Definition:</strong> A <strong>variable</strong> is a named label referencing
+                    an object in memory. <strong>Scope</strong> defines the region in your program where that variable
+                    name is recognized.
+                </p>
+
+                <span class="card-badge">Stage 4–6: LEGB Scope Mechanics</span>
+                <div class="code-presenter">
+                    <div class="code-header">
+                        <div class="code-dots"><span class="code-dot red"></span><span
+                                class="code-dot yellow"></span><span class="code-dot green"></span></div>
+                        <span>Python 3 • scope_demo.py</span>
+                        <button class="btn-copy">Copy Code</button>
+                    </div>
+                    <div class="code-body">
+                        <pre><span class="code-cmt"># Global Scope</span>
+forest_name = <span class="code-str">"Emerald Canopy"</span>
+
+<span class="code-kw">def</span> <span class="code-fn">camp_site</span>():
+    <span class="code-cmt"># Local Scope</span>
+    campfire_temp = <span class="code-str">350</span>
+    <span class="code-fn">print</span>(<span class="code-str">"Global:"</span>, forest_name)
+    <span class="code-fn">print</span>(<span class="code-str">"Local:"</span>, campfire_temp)
+
+<span class="code-fn">camp_site</span>()
+<span class="code-cmt"># Accessing campfire_temp outside raises NameError</span></pre>
+                    </div>
+                </div>
+
+                <span class="card-badge">Stage 7–8: Interactive Scope Sandbox</span>
+                <div class="sim-container">
+                    <div class="sim-controls">
+                        <h4 style="color: var(--accent-glow);">Namespace Control</h4>
+                        <label style="font-size: 0.85rem; color: var(--text-muted);">Global (<code>forest_name</code>):
+                            <input type="text" id="input-global-var" value="Emerald Canopy"
+                                style="width: 100%; background: var(--bg-surface-elevated); border: 1px solid var(--border-glass); color: var(--text-main); padding: 0.4rem; border-radius: 4px;">
+                        </label>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                            <button id="btn-call-fn" class="btn btn-primary" style="flex: 1;">1. Invoke
+                                Function</button>
+                            <button id="btn-exit-fn" class="btn btn-secondary" style="flex: 1;">2. Exit Scope</button>
+                        </div>
+                    </div>
+
+                    <div class="sim-output-box">
+                        <div style="font-size: 0.75rem; color: #64748b;">MEMORY NAMESPACE</div>
+                        <div id="global-mem-display" style="font-size: 0.85rem; color: var(--text-main);">forest_name =
+                            "Emerald Canopy"</div>
+                        <div id="local-mem-box"
+                            style="margin-top: 0.5rem; padding: 0.5rem; border: 1px dashed var(--accent-glow); border-radius: 4px; opacity: 0.4;">
+                            <div id="local-mem-display" style="font-size: 0.8rem; color: var(--text-muted);">[Local
+                                Stack Frame Inactive]</div>
+                        </div>
+                    </div>
+                </div>
+
+                <span class="card-badge">Stage 9–11: Diagnostic Quiz</span>
+                <div class="quiz-box">
+                    <h4 style="color: var(--text-main);">Quick Check: What happens if you access a local variable from
+                        outside its function?</h4>
+                    <div class="quiz-option" data-correct="false">A) It converts into a global variable with value None
+                    </div>
+                    <div class="quiz-option" data-correct="true">B) Python raises a NameError because the variable was
+                        destroyed upon exit</div>
+                    <div class="quiz-option" data-correct="false">C) It returns the value from the last program run
+                    </div>
+                    <p class="quiz-explanation" style="display:none; color: var(--accent-glow); font-size: 0.85rem;">
+                        ✓ Correct! Local variables exist only while the function frame is on the stack.
+                    </p>
+                </div>
+
+                <div
+                    style="background: rgba(16, 185, 129, 0.1); border: 1px solid var(--accent-emerald); padding: 1.25rem; border-radius: var(--radius-md);">
+                    <h4 style="color: var(--accent-glow);">📌 Key Takeaway</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Keep variables scoped locally whenever
+                        possible to prevent side effects and keep your functions pure.</p>
+                    <a href="practical.html"
+                        style="color: var(--accent-sky); font-weight: 700; text-decoration: none; display: inline-block; margin-top: 0.5rem;">Next:
+                        Practical Laboratories 1–4 →</a>
+                </div>
+            </article>
+        </main>
+
+        <div id="command-palette-modal"
+            style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 10000; align-items: flex-start; justify-content: center; padding-top: 14vh;"
+            role="dialog" aria-modal="true" aria-label="Command Palette">
+            <div
+                style="background: var(--bg-surface-elevated); border: 1px solid var(--border-highlight); width: 90%; max-width: 580px; border-radius: 16px; overflow: hidden;">
+                <div
+                    style="padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-glass); display: flex; align-items: center; gap: 0.75rem;">
+                    <input type="text" id="palette-search-input" placeholder="Search lessons, concepts, or labs..."
+                        style="width: 100%; background: transparent; border: none; outline: none; color: var(--text-main); font-size: 1.05rem; font-family: inherit;">
+                </div>
+                <ul id="palette-results-list"
+                    style="list-style: none; max-height: 320px; overflow-y: auto; padding: 0.5rem;"></ul>
+            </div>
+        </div>
+
+        <nav class="mobile-dock" aria-label="Mobile Dock Navigation">
+            <ul class="mobile-dock-list">
+                <li class="mobile-dock-item"><a href="index.html"><span>🏠</span><span>Home</span></a></li>
+                <li class="mobile-dock-item"><a href="programming.html"><span>📖</span><span>Concepts</span></a></li>
+                <li class="mobile-dock-item"><a href="functions.html"><span>⚙️</span><span>Functions</span></a></li>
+                <li class="mobile-dock-item"><a href="practical.html"><span>🧪</span><span>Lab</span></a></li>
+            </ul>
+        </nav>
+
+        <footer class="footer-main">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h4>🌿 Lazy-Coders</h4>
+                    <p>A pure static, low-bandwidth, nature-inspired programming platform teaching computing
+                        fundamentals with clarity.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Curriculum</h5>
+                    <ul>
+                        <li><a href="programming.html">Programming Basics</a></li>
+                        <li><a href="python.html">Python Ecology</a></li>
+                        <li><a href="functions.html">Functions & Scopes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Laboratories</h5>
+                    <ul>
+                        <li><a href="practical.html#lab1">User-Defined Functions</a></li>
+                        <li><a href="practical.html#lab3">Call-by-Sharing</a></li>
+                        <li><a href="practical.html#lab4">Classes & Objects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="resources.html">Video Lessons</a></li>
+                        <li><a href="about.html">About & Architecture</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+        <script src="js/app.js"></script>
+        <script src="js/navigation.js"></script>
+        <script src="js/theme.js"></script>
+        <script src="js/dashboard.js"></script>
+        <script src="js/quiz.js"></script>
+        <script src="js/progress.js"></script>
+        <script src="js/accessibility.js"></script>
+        <script src="js/performance.js"></script>
+
+        <script>
+            (() => {
+                const gIn = document.getElementById('input-global-var'), gMem = document.getElementById('global-mem-display');
+                const cBtn = document.getElementById('btn-call-fn'), eBtn = document.getElementById('btn-exit-fn');
+                const lBox = document.getElementById('local-mem-box'), lMem = document.getElementById('local-mem-display');
+
+                gIn.addEventListener('input', () => gMem.textContent = `forest_name = "${gIn.value}"`);
+                cBtn.addEventListener('click', () => {
+                    lBox.style.opacity = '1';
+                    lMem.innerHTML = `<span style="color:var(--accent-glow);">campfire_temp = 350</span><br><span style="font-size:0.75rem; color:var(--text-muted);">Accesses global: "${gIn.value}"</span>`;
+                    if (typeof LazyCoders !== 'undefined') {
+                        LazyCoders.markLessonComplete('var-01');
+                        LazyCoders.addXP(20, 'Scope Visualized');
+                    }
+                });
+                eBtn.addEventListener('click', () => {
+                    lBox.style.opacity = '0.4';
+                    lMem.textContent = '[Local Stack Frame Inactive]';
+                });
+            })();
+        </script>
+    </body>
+
+</html>

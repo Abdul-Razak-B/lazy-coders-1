@@ -1,0 +1,100 @@
+/* ==========================================================================
+   LAZY-CODERS: RESPONSIVE & BREAKPOINT STYLES (css/responsive.css)
+   Mobile Dock, Fluid Grids, Tablet Adaptations & Accessible Overrides
+   ========================================================================== */
+
+/* Mobile Bottom Dock (Hidden on Desktop) */
+.mobile-dock {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid var(--border-glass);
+    z-index: 10000;
+    padding: 0.4rem 0.5rem calc(0.4rem + env(safe-area-inset-bottom, 0));
+}
+
+.mobile-dock-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+.mobile-dock-item a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
+}
+
+.mobile-dock-item a.active {
+    color: var(--accent-glow);
+}
+
+.mobile-dock-item span:first-child {
+    font-size: 1.15rem;
+}
+
+/* --------------------------------------------------------------------------
+   Media Queries: Tablet (<= 992px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+    .nav-links {
+        display: none;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Media Queries: Mobile Handsets (<= 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 70px;
+        /* Offset for Mobile Dock */
+    }
+
+    .mobile-dock {
+        display: block;
+    }
+
+    .main-wrapper {
+        padding: 0 1rem;
+        margin: 1.25rem auto;
+    }
+
+    .learning-card {
+        padding: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.45rem;
+    }
+
+    .sim-container {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    #custom-cursor,
+    #cursor-dot {
+        display: none !important;
+    }
+}
